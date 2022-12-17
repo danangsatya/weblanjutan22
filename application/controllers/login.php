@@ -29,16 +29,17 @@ class Login extends CI_Controller{
  
             $this->session->set_userdata($data_session);
  
-            redirect(base_url("index.php/admin"));
+            redirect(base_url("admin"));
  
         }else{
-            echo "Username dan password salah !";
 			$this->session->set_flashdata('category_error', 'login salah.');
+			redirect(base_url("login"));
         }
     }
  
     function logout(){
         $this->session->sess_destroy();
         redirect(base_url('login'));
+		
     }
 }
